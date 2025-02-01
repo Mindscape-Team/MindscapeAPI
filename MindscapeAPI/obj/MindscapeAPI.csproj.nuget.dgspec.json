@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\Mindscape Team\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj": {}
+    "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj": {}
   },
   "projects": {
-    "D:\\Study\\Mindscape Team\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj": {
+    "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\Mindscape Team\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj",
+        "projectUniqueName": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj",
         "projectName": "MindscapeAPI",
-        "projectPath": "D:\\Study\\Mindscape Team\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj",
+        "projectPath": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj",
         "packagesPath": "C:\\Users\\ALAMANAA\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\Mindscape Team\\MindscapeAPI\\MindscapeAPI\\obj\\",
+        "outputPath": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ALAMANAA\\AppData\\Roaming\\NuGet\\NuGet.Config",
