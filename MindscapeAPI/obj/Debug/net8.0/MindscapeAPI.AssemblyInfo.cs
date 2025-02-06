@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MindscapeAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed5014b40891348753fb303485e89249f011be58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+faa7d2552b436572d007e20276f0b4905e687f1d")]
 [assembly: System.Reflection.AssemblyProductAttribute("MindscapeAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MindscapeAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

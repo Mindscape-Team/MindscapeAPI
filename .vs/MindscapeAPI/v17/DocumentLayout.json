@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|d:\\study\\mindscape team\\.organization\\mindscapeapi\\mindscapeapi\\repository\\auth\\authrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|solutionrelative:mindscapeapi\\repository\\auth\\authrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|d:\\study\\mindscape team\\.organization\\mindscapeapi\\mindscapeapi\\dtos\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|solutionrelative:mindscapeapi\\dtos\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|d:\\study\\mindscape team\\.organization\\mindscapeapi\\mindscapeapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|solutionrelative:mindscapeapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|d:\\study\\mindscape team\\.organization\\mindscapeapi\\mindscapeapi\\repository\\auth\\authrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|solutionrelative:mindscapeapi\\repository\\auth\\authrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|d:\\study\\mindscape team\\.organization\\mindscapeapi\\mindscapeapi\\dtos\\auth\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|solutionrelative:mindscapeapi\\dtos\\auth\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|d:\\study\\mindscape team\\.organization\\mindscapeapi\\mindscapeapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|solutionrelative:mindscapeapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|d:\\study\\mindscape team\\.organization\\mindscapeapi\\mindscapeapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|solutionrelative:mindscapeapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6BCBCBEE-42D4-47AE-9DA2-A51BD0F34DF3}|MindscapeAPI\\MindscapeAPI.csproj|d:\\study\\mindscape team\\.organization\\mindscapeapi\\mindscapeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,42 +46,88 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthDTO.cs",
+              "DocumentMoniker": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\DTOs\\Auth\\AuthDTO.cs",
+              "RelativeDocumentMoniker": "MindscapeAPI\\DTOs\\Auth\\AuthDTO.cs",
+              "ToolTip": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\DTOs\\Auth\\AuthDTO.cs",
+              "RelativeToolTip": "MindscapeAPI\\DTOs\\Auth\\AuthDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T02:43:40.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "MindscapeAPI\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "MindscapeAPI\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-03T01:39:32.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "MindscapeAPI\\appsettings.json",
+              "ToolTip": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\appsettings.json",
+              "RelativeToolTip": "MindscapeAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-03T01:39:19.578Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "RegisterDTO.cs",
+              "DocumentMoniker": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\DTOs\\Auth\\RegisterDTO.cs",
+              "RelativeDocumentMoniker": "MindscapeAPI\\DTOs\\Auth\\RegisterDTO.cs",
+              "ToolTip": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\DTOs\\Auth\\RegisterDTO.cs",
+              "RelativeToolTip": "MindscapeAPI\\DTOs\\Auth\\RegisterDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T01:05:28.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "AuthRepo.cs",
               "DocumentMoniker": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\Repository\\Auth\\AuthRepo.cs",
               "RelativeDocumentMoniker": "MindscapeAPI\\Repository\\Auth\\AuthRepo.cs",
               "ToolTip": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\Repository\\Auth\\AuthRepo.cs",
               "RelativeToolTip": "MindscapeAPI\\Repository\\Auth\\AuthRepo.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwC0AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAiwBgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-01T08:25:41.163Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "MindscapeAPI\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\Controllers\\AuthController.cs",
               "RelativeToolTip": "MindscapeAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwC4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-01T08:23:35.479Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-01T08:23:35.479Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\Program.cs",
               "RelativeDocumentMoniker": "MindscapeAPI\\Program.cs",
               "ToolTip": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\Program.cs",
               "RelativeToolTip": "MindscapeAPI\\Program.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAQwB8AAABVAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwEUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-01T05:17:46.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-01T05:17:46.456Z"
             }
           ]
         }

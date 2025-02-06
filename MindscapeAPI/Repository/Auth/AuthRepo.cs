@@ -34,7 +34,7 @@ namespace MindscapeAPI.Repository.Auth
             return new AuthDTO
             {
                 isValid = true,
-                UserName = user.Email,
+                UserName = user.UserName,
                 Email = user.Email,
                 Roles = roles.ToList(),
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
@@ -48,9 +48,11 @@ namespace MindscapeAPI.Repository.Auth
             if (existingEmail != null)
                 return new AuthDTO { Message = "Email already exists!" };
 
+            var randomId = Guid.NewGuid();
+
             var user = new ApplicationUser
             {
-                UserName = dto.Email,
+                UserName = $"{dto.Email.Split('@')[0]}-{randomId.ToString().Substring(0,5)}",
                 FullName = dto.FullName,
                 Email = dto.Email,
             };
@@ -76,7 +78,7 @@ namespace MindscapeAPI.Repository.Auth
             return new AuthDTO
             {
                 isValid = true,
-                UserName = user.Email,
+                UserName = user.UserName,
                 Email = user.Email,
                 Roles = new List<string> { "User" },
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
