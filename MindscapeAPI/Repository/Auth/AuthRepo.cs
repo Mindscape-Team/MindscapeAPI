@@ -98,8 +98,9 @@ namespace MindscapeAPI.Repository.Auth
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.GivenName, user.FullName.Trim()),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email)
-            }.Union(userClaims).Union(roleClaims);
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+				new Claim(ClaimTypes.NameIdentifier, user.Id)
+			}.Union(userClaims).Union(roleClaims);
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.SigningKey));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);

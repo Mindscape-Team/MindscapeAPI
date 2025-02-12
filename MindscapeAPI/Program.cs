@@ -1,11 +1,12 @@
-
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using MindscapeAPI.Data;
 using MindscapeAPI.Models;
 using MindscapeAPI.Repository.Auth;
+using MindscapeAPI.Repository.UserProfile;
 using System.Text;
 
 namespace MindscapeAPI
@@ -18,7 +19,31 @@ namespace MindscapeAPI
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+			builder.Services.AddSwaggerGen(c =>
+			{
+				c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+				{
+					In = ParameterLocation.Header,
+					Description = "Enter 'Bearer' followed by your JWT token.",
+					Name = "Authorization",
+					Type = SecuritySchemeType.ApiKey
+				});
+				c.AddSecurityRequirement(new OpenApiSecurityRequirement
+	{
+		{
+			new OpenApiSecurityScheme
+			{
+				Reference = new OpenApiReference
+				{
+					Type = ReferenceType.SecurityScheme,
+					Id = "Bearer"
+				}
+			},
+			new string[] { }
+		}
+	});
+			});
+			builder.Services.AddMemoryCache();
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             {
@@ -28,6 +53,7 @@ namespace MindscapeAPI
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddScoped<IAuthRepo, AuthRepo>();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
 
@@ -49,15 +75,20 @@ namespace MindscapeAPI
                 };
             });
 
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAllOrigins",
-                    policy => policy.AllowAnyOrigin()
-                                    .AllowAnyMethod()
-                                    .AllowAnyHeader());
-            });
+            builder.Services.AddAuthorization();
 
-            var app = builder.Build();
+			builder.Services.AddCors(options =>
+			{
+				options.AddPolicy("AllowAllOrigins",
+					builder =>
+					{
+						builder.AllowAnyOrigin()
+							   .AllowAnyMethod()
+							   .AllowAnyHeader();
+					});
+			});
+
+			var app = builder.Build();
 
             if (app.Environment.IsDevelopment())
             {
@@ -69,6 +100,7 @@ namespace MindscapeAPI
 
             app.UseCors("AllowAllOrigins");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
