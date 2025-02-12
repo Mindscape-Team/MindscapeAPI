@@ -43,5 +43,30 @@ namespace MindscapeAPI.Controllers
 
 			return Ok("Profile updated successfully");
 		}
+
+		[HttpDelete("DeleteAccount")]
+		public async Task<IActionResult> DeleteAccount()
+		{
+			var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+			if (userId == null) return Unauthorized();
+
+			var result = await _userService.DeleteUserAccountAsync(userId);
+			if (!result)
+				return BadRequest("Failed to delete account.");
+
+			return NoContent();
+		}
+
+		[HttpPost("ChangePassword")]
+		public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto model)
+		{
+			var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+			if (userId == null) return Unauthorized();
+
+			var result = await _userService.ChangePasswordAsync(userId, model.CurrentPassword, model.NewPassword);
+			if(!result.Success) return BadRequest(result.Message);
+
+			return Ok(result.Message);
+		}
 	}
 }

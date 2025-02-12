@@ -1,69 +1,98 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Caching.Memory;
-using MindscapeAPI.Data;
 using MindscapeAPI.DTOs.UserProfile;
+using MindscapeAPI.Models;
+using MindscapeAPI.Repository.UserProfile;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace MindscapeAPI.Repository.UserProfile
+public class UserService : IUserService
 {
-	public class UserService:IUserService
+	private readonly UserManager<ApplicationUser> _userManager;
+	private readonly IMemoryCache _cache;
+
+	public UserService(UserManager<ApplicationUser> userManager, IMemoryCache cache)
 	{
-		private readonly ApplicationDbContext _context;
-		private readonly IMemoryCache _cache;
+		_userManager = userManager;
+		_cache = cache;
+	}
 
-        public UserService(ApplicationDbContext context, IMemoryCache cache)
-        {
-			_context = context;
-            _cache = cache;
-        }
-
-		public async Task<RetrieveUserProfileDTO> GetUserProfileAsync(string userId)
+	public async Task<RetrieveUserProfileDTO> GetUserProfileAsync(string userId)
+	{
+		if (_cache.TryGetValue(userId, out RetrieveUserProfileDTO cachedProfile))
 		{
-			if (_cache.TryGetValue(userId, out RetrieveUserProfileDTO cachedProfile))
-			{
-				return cachedProfile;
-			}
-
-			var user = await _context.Users.FirstOrDefaultAsync(u=>u.Id == userId);
-			if (user == null) return null;
-
-			var userProfile = new RetrieveUserProfileDTO
-			{
-				FullName = user.FullName,
-				Email = user.Email,
-				PhoneNumber = user.PhoneNumber
-			};
-			_cache.Set(userId, userProfile);
-
-			return userProfile;
+			return cachedProfile;
 		}
 
-		public async Task<bool> UpdateUserProfileAsync(string userId, UpdateUserProfileDTO updateUserProfileDTO)
+		var user = await _userManager.FindByIdAsync(userId);
+		if (user == null) return null;
+
+		var userProfile = new RetrieveUserProfileDTO
 		{
+			FullName = user.FullName,
+			Email = user.Email,
+			PhoneNumber = user.PhoneNumber
+		};
 
-			var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
-			if (user == null) return false;
+		_cache.Set(userId, userProfile);
+		return userProfile;
+	}
 
-			if(updateUserProfileDTO.FullName != user.FullName) 
-			      user.FullName = updateUserProfileDTO.FullName;
+	public async Task<bool> UpdateUserProfileAsync(string userId, UpdateUserProfileDTO updateUserProfileDTO)
+	{
+		var user = await _userManager.FindByIdAsync(userId);
+		if (user == null) return false;
 
-			if (updateUserProfileDTO.Email != user.Email)
-				user.Email = updateUserProfileDTO.Email;            
+		if (!string.IsNullOrEmpty(updateUserProfileDTO.FullName) && updateUserProfileDTO.FullName != user.FullName)
+			user.FullName = updateUserProfileDTO.FullName;
 
-            if (updateUserProfileDTO.PhoneNumber != user.PhoneNumber)
-				user.PhoneNumber = updateUserProfileDTO.PhoneNumber;
+		if (!string.IsNullOrEmpty(updateUserProfileDTO.Email) && updateUserProfileDTO.Email != user.Email)
+			user.Email = updateUserProfileDTO.Email;
 
-			await _context.SaveChangesAsync();
-			_cache.Remove(userId);
+		if (!string.IsNullOrEmpty(updateUserProfileDTO.PhoneNumber) && updateUserProfileDTO.PhoneNumber != user.PhoneNumber)
+			user.PhoneNumber = updateUserProfileDTO.PhoneNumber;
 
-			var updateUserProfile = new UpdateUserProfileDTO
-			{
-				FullName = user.FullName,
-				Email = user.Email,
-				PhoneNumber = user.PhoneNumber
-			};
-			_cache.Set(userId, updateUserProfile);
+		var result = await _userManager.UpdateAsync(user);
+		if (!result.Succeeded) return false;
 
-			return true;
+		_cache.Remove(userId); 
+
+		_cache.Set(userId, new RetrieveUserProfileDTO
+		{
+			FullName = user.FullName,
+			Email = user.Email,
+			PhoneNumber = user.PhoneNumber
+		});
+
+		return true;
+	}
+
+	public async Task<bool> DeleteUserAccountAsync(string userId)
+	{
+		var user = await _userManager.FindByIdAsync(userId);
+		if (user == null) return false;
+
+		var result = await _userManager.DeleteAsync(user);
+		if (!result.Succeeded) return false;
+
+		_cache.Remove(userId); 
+		return true;
+	}
+
+	public async Task<(bool Success, string Message)> ChangePasswordAsync(string userId, string currentPassword, string newPassword)
+	{
+		var user = await _userManager.FindByIdAsync(userId);
+		if (user == null)
+			return (false, "User not found.");
+
+		var result = await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+
+		if (!result.Succeeded)
+		{
+			string errors = string.Join(", ", result.Errors.Select(e => e.Description));
+			return (false, "Password change failed: " + errors);
 		}
+
+		return (true, "Password changed successfully.");
 	}
 }
