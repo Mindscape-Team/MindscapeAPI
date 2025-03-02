@@ -7,5 +7,10 @@ namespace MindscapeAPI.Models
     {
         [MaxLength(250)]
         public string FullName { get; set; }
+
+        [MaxLength(500)]
+        public string? Address { get; set; }
+
+        public string? ProfilePicture { get; set; }
     }
 }

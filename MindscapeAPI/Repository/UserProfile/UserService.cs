@@ -3,6 +3,7 @@ using Microsoft.Extensions.Caching.Memory;
 using MindscapeAPI.DTOs.UserProfile;
 using MindscapeAPI.Models;
 using MindscapeAPI.Repository.UserProfile;
+using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,10 +20,10 @@ public class UserService : IUserService
 
 	public async Task<RetrieveUserProfileDTO> GetUserProfileAsync(string userId)
 	{
-		if (_cache.TryGetValue(userId, out RetrieveUserProfileDTO cachedProfile))
-		{
-			return cachedProfile;
-		}
+		//if (_cache.TryGetValue(userId, out RetrieveUserProfileDTO cachedProfile))
+		//{
+		//	return cachedProfile;
+		//}
 
 		var user = await _userManager.FindByIdAsync(userId);
 		if (user == null) return null;
@@ -31,10 +32,12 @@ public class UserService : IUserService
 		{
 			FullName = user.FullName,
 			Email = user.Email,
-			PhoneNumber = user.PhoneNumber
-		};
+			PhoneNumber = user.PhoneNumber,
+			ProfilePicture = user.ProfilePicture,
+			Address = user.Address
+        };
 
-		_cache.Set(userId, userProfile);
+		//_cache.Set(userId, userProfile);
 		return userProfile;
 	}
 
@@ -52,7 +55,10 @@ public class UserService : IUserService
 		if (!string.IsNullOrEmpty(updateUserProfileDTO.PhoneNumber) && updateUserProfileDTO.PhoneNumber != user.PhoneNumber)
 			user.PhoneNumber = updateUserProfileDTO.PhoneNumber;
 
-		var result = await _userManager.UpdateAsync(user);
+        if (!string.IsNullOrEmpty(updateUserProfileDTO.Address) && updateUserProfileDTO.Address != user.Address)
+            user.Address = updateUserProfileDTO.Address;
+
+        var result = await _userManager.UpdateAsync(user);
 		if (!result.Succeeded) return false;
 
 		_cache.Remove(userId); 
@@ -61,13 +67,28 @@ public class UserService : IUserService
 		{
 			FullName = user.FullName,
 			Email = user.Email,
-			PhoneNumber = user.PhoneNumber
+			PhoneNumber = user.PhoneNumber,
+			Address = user.Address
 		});
 
 		return true;
 	}
 
-	public async Task<bool> DeleteUserAccountAsync(string userId)
+    public async Task<bool> UpdateUserProfilePictureAsync(string userId, UpdateUserProfilePictureDTO updateUserProfilePictureDTO)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null) return false;
+
+        if (updateUserProfilePictureDTO.ProfilePicture != null && updateUserProfilePictureDTO.ProfilePicture != user.ProfilePicture)
+            user.ProfilePicture = updateUserProfilePictureDTO.ProfilePicture;
+
+        var result = await _userManager.UpdateAsync(user);
+        if (!result.Succeeded) return false;
+
+		return true;
+    }
+
+    public async Task<bool> DeleteUserAccountAsync(string userId)
 	{
 		var user = await _userManager.FindByIdAsync(userId);
 		if (user == null) return false;
@@ -95,4 +116,5 @@ public class UserService : IUserService
 
 		return (true, "Password changed successfully.");
 	}
+
 }

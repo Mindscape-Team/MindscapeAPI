@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MindscapeAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e19fa83bfbbf037f1b1bda0247bdd94f17d672bf")]
+=======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+75c4898a6d2e12beb5d5f181b6aa8cb52e056b2d")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("MindscapeAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MindscapeAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

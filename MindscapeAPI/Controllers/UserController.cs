@@ -44,7 +44,19 @@ namespace MindscapeAPI.Controllers
 			return Ok("Profile updated successfully");
 		}
 
-		[HttpDelete("DeleteAccount")]
+        [HttpPut("UpdateProfilePicture")]
+        public async Task<IActionResult> UpdateUserProfilePicture([FromBody] UpdateUserProfilePictureDTO updateUserProfilePictureDTO)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null) return Unauthorized();
+
+            var success = await _userService.UpdateUserProfilePictureAsync(userId, updateUserProfilePictureDTO);
+            if (!success) return NotFound();
+
+            return Ok("Profile Picture updated successfully");
+        }
+
+        [HttpDelete("DeleteAccount")]
 		public async Task<IActionResult> DeleteAccount()
 		{
 			var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

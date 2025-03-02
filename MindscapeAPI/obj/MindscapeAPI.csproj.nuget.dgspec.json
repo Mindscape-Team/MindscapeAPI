@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Final Year\\Mindscape\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj": {}
+    "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj": {}
   },
   "projects": {
-    "E:\\Final Year\\Mindscape\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj": {
+    "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Final Year\\Mindscape\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj",
+        "projectUniqueName": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj",
         "projectName": "MindscapeAPI",
-        "projectPath": "E:\\Final Year\\Mindscape\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj",
-        "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
-        "outputPath": "E:\\Final Year\\Mindscape\\MindscapeAPI\\MindscapeAPI\\obj\\",
+        "projectPath": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\MindscapeAPI.csproj",
+        "packagesPath": "C:\\Users\\ALAMANAA\\.nuget\\packages\\",
+        "outputPath": "D:\\Study\\Mindscape Team\\.organization\\MindscapeAPI\\MindscapeAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ALAMANAA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -102,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

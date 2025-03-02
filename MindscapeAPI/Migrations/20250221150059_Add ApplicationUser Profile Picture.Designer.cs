@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MindscapeAPI.Data;
 
@@ -11,9 +12,11 @@ using MindscapeAPI.Data;
 namespace MindscapeAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250221150059_Add ApplicationUser Profile Picture")]
+    partial class AddApplicationUserProfilePicture
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,22 +54,22 @@ namespace MindscapeAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "22af899f-f14d-44b2-b0c9-f783dc2c5a1e",
-                            ConcurrencyStamp = "50389d7f-66c2-48a5-a3ca-3bfaa1a7068e",
+                            Id = "b62852fa-b1f4-4240-9826-f37e1ee3f6fd",
+                            ConcurrencyStamp = "5422e64f-68f1-4123-a1a1-84943bf47959",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "d2e95b49-38d4-4458-ab59-9c319c5ceaaa",
-                            ConcurrencyStamp = "e8418ed5-1f09-4264-8002-d51ba128d36d",
+                            Id = "0e6c2564-80ff-4645-983d-1e94fcd0dc12",
+                            ConcurrencyStamp = "5439c69e-9d2c-446d-88e0-c8e2dfcbb741",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "af317302-970b-4a48-8280-fe006e605191",
-                            ConcurrencyStamp = "0ffe935f-0f8e-4436-a727-e2960326fcff",
+                            Id = "dee84584-a9c2-41a9-be56-29a6c6f49250",
+                            ConcurrencyStamp = "5e8bdb7c-2bd0-4bed-b5c1-d1a59fcd806a",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -186,10 +189,6 @@ namespace MindscapeAPI.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Address")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -229,8 +228,9 @@ namespace MindscapeAPI.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("ProfilePicture")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("ProfilePicture")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
