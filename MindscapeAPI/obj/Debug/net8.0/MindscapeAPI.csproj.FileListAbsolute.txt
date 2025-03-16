@@ -299,3 +299,5 @@ E:\Final Year\Mindscape\MindscapeAPI\MindscapeAPI\obj\Debug\net8.0\refint\Mindsc
 E:\Final Year\Mindscape\MindscapeAPI\MindscapeAPI\obj\Debug\net8.0\MindscapeAPI.pdb
 E:\Final Year\Mindscape\MindscapeAPI\MindscapeAPI\obj\Debug\net8.0\MindscapeAPI.genruntimeconfig.cache
 E:\Final Year\Mindscape\MindscapeAPI\MindscapeAPI\obj\Debug\net8.0\ref\MindscapeAPI.dll
+E:\Final Year\Mindscape\MindscapeAPI\MindscapeAPI\bin\Debug\net8.0\AutoMapper.dll
+E:\Final Year\Mindscape\MindscapeAPI\MindscapeAPI\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

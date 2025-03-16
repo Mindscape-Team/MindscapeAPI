@@ -7,10 +7,10 @@ namespace MindscapeAPI.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions options) : base(options)
-        {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        }
+        public DbSet<Medicine> Medicines { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -49,6 +49,13 @@ namespace MindscapeAPI.Data
                 }
             };
             builder.Entity<IdentityRole>().HasData(identityRoles);
+
+
+			builder.Entity<Medicine>()
+                .HasOne(m => m.User)
+                .WithMany(p => p.Medicines)
+                .HasForeignKey(m => m.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

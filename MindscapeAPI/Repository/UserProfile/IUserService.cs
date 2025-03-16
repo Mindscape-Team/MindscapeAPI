@@ -1,4 +1,5 @@
 ﻿using MindscapeAPI.DTOs.UserProfile;
+using MindscapeAPI.Models;
 
 namespace MindscapeAPI.Repository.UserProfile
 {

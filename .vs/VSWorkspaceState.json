@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MindscapeAPI",
+    "\\MindscapeAPI\\Controllers",
+    "\\MindscapeAPI\\DTOs",
+    "\\MindscapeAPI\\DTOs\\Medicine",
+    "\\MindscapeAPI\\DTOs\\UserProfile",
+    "\\MindscapeAPI\\Repository",
+    "\\MindscapeAPI\\Repository\\MedicineRepo",
+    "\\MindscapeAPI\\Repository\\UserProfile"
+  ],
+  "SelectedNode": "\\MindscapeAPI.sln",
+  "PreviewInSolutionExplorer": false
+}

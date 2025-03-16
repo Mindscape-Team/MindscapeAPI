@@ -12,7 +12,7 @@ public class UserService : IUserService
 	private readonly UserManager<ApplicationUser> _userManager;
 	private readonly IMemoryCache _cache;
 
-	public UserService(UserManager<ApplicationUser> userManager, IMemoryCache cache)
+	public UserService(UserManager<ApplicationUser> userManager,IMemoryCache cache)
 	{
 		_userManager = userManager;
 		_cache = cache;

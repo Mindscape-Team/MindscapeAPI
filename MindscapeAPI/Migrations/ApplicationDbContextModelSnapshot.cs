@@ -51,22 +51,22 @@ namespace MindscapeAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "22af899f-f14d-44b2-b0c9-f783dc2c5a1e",
-                            ConcurrencyStamp = "50389d7f-66c2-48a5-a3ca-3bfaa1a7068e",
+                            Id = "6d26cac3-cda8-4232-ac1e-db831c2a16d7",
+                            ConcurrencyStamp = "bd6a547c-ba19-47af-8a98-16f4f3cd95de",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "d2e95b49-38d4-4458-ab59-9c319c5ceaaa",
-                            ConcurrencyStamp = "e8418ed5-1f09-4264-8002-d51ba128d36d",
+                            Id = "6fb3123b-dfe6-47e6-a7c3-97823ff77aee",
+                            ConcurrencyStamp = "81d6744d-17c6-4eef-b396-750a8d314a04",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "af317302-970b-4a48-8280-fe006e605191",
-                            ConcurrencyStamp = "0ffe935f-0f8e-4436-a727-e2960326fcff",
+                            Id = "ecb25b33-31af-4921-aab7-8017daf651a5",
+                            ConcurrencyStamp = "79910ecd-e19d-48de-b944-cd237e36c99e",
                             Name = "Doctor",
                             NormalizedName = "DOCTOR"
                         });
@@ -255,6 +255,43 @@ namespace MindscapeAPI.Migrations
                     b.ToTable("Users", "identity");
                 });
 
+            modelBuilder.Entity("MindscapeAPI.Models.Medicine", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Dosage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DosageFrequency")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MedicinePhoto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MedicineTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Medicines");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -304,6 +341,22 @@ namespace MindscapeAPI.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MindscapeAPI.Models.Medicine", b =>
+                {
+                    b.HasOne("MindscapeAPI.Models.ApplicationUser", "User")
+                        .WithMany("Medicines")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MindscapeAPI.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Medicines");
                 });
 #pragma warning restore 612, 618
         }

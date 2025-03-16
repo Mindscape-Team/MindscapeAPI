@@ -4,8 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MindscapeAPI.Data;
+using MindscapeAPI.Mapping;
 using MindscapeAPI.Models;
 using MindscapeAPI.Repository.Auth;
+using MindscapeAPI.Repository.MedicineRepo;
 using MindscapeAPI.Repository.UserProfile;
 using System.Text;
 
@@ -54,6 +56,9 @@ namespace MindscapeAPI
 
             builder.Services.AddScoped<IAuthRepo, AuthRepo>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IMedicineService, MedicineService>();
+
+            builder.Services.AddAutoMapper(typeof(MedicineProfile));
 
             builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
 

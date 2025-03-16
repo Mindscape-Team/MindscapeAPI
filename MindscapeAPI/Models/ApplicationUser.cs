@@ -12,5 +12,7 @@ namespace MindscapeAPI.Models
         public string? Address { get; set; }
 
         public string? ProfilePicture { get; set; }
-    }
+
+		public ICollection<Medicine> Medicines { get; set; } = new List<Medicine>();
+	}
 }
